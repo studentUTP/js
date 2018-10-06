@@ -1,4 +1,5 @@
 
+// Sito Eratostenesa
 const max = 1000000;
 const a = [0];
 let b;
