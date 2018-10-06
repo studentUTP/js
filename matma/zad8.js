@@ -1,25 +1,22 @@
+const fs = require("fs");
 
-// Sito Eratostenesa
-const max = 1000000;
-const a = [0];
-let b;
-for (let i = 1; i <= max; i += 1) {
-  a[i] = 1;
-}
-
-for (let j = 2; j <= Math.sqrt(max); j += 1) {
-  if (a[j] === 1) {
-    for (b = j * 2; b <= max; b += j) {
-      a[b] = 0;
+let dane;
+fs.readFile(process.argv[2], "utf8", (err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    dane = data.toString();
+    let najw = 0;
+    let zm = 0;
+    for (let i = 1; i < dane.length - 13; i += 1) {
+      zm = Number(dane[i]);
+      for (let j = 1; j < 13; j += 1) {
+        zm *= Number(dane[i + j]);
+        if (zm > najw) {
+          najw = zm;
+        }
+      }
     }
+    console.log(najw);
   }
-}
-b = 0;
-for (let v = 2; v <= max; v += 1) {
-  if (a[v] === 1) {
-    b += 1;
-    if (b === 10001) {
-      console.log(v); break;
-    }
-  }
-}
+});

@@ -1,18 +1,6 @@
-let j;
-let x;
-let nwynik = 0;
-let result = 0;
-for (let i = 600; i < 999; i += 1) {
-  j = i;
-  for (let z = 600; z < 999; z += 1) {
-    x = z;
-    nwynik = j * x;
-    nwynik = nwynik.toString();
-    const lewa = nwynik.toString().slice(0, Math.floor(nwynik.length / 2));
-    const prawa = nwynik.toString().slice(Math.floor(nwynik.length / 2));
-    if (lewa[0] === prawa[2] && lewa[1] === prawa[1] && lewa[2] === prawa[0]) {
-      result = (result < nwynik) ? nwynik : result;
-    }
+for (let i = 2520; i < 10000000000; i += 1) {
+  if (i % 20 === 0 && i % 19 === 0 && i % 18 === 0 && i % 17 === 0 && i % 16 === 0 && i % 15 === 0 && i % 14 === 0 && i % 13 === 0 && i % 12 === 0 && i % 11 === 0) {
+    console.log(i);
+    break;
   }
 }
-console.log(result);
